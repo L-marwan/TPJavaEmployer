@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import app.model.Employer;
 
+/*
+ * interface to give access to data to the views without caring about the source
+ */
 public interface DataProviderInterface {
 
 	

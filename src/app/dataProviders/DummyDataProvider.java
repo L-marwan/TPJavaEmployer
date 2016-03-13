@@ -1,6 +1,10 @@
 package app.dataProviders;
 
 import java.time.LocalDate;
+
+/*
+ * dummy class to generate some test data
+ */
 import java.util.ArrayList;
 
 import app.model.Employer;

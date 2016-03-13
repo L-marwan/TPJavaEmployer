@@ -64,12 +64,7 @@ public class MainViewController {
 		firstNameTF.textProperty().addListener((observable, oldValue, newValue) -> {
 			System.out.println("TextField Text Changed (newValue: " + newValue + ")");
 		});
-
-
-
 	}
-
-
 
 	/**
 	 * handles the event of clicking the "ajouter" btn
@@ -84,6 +79,11 @@ public class MainViewController {
 
 		try{
 			validateAndInsert(nom,prenom,poste,salaire);
+			//reset the text fields
+			firstNameTF.setText("");
+			lastNameTF.setText("");
+			posteTF.setText("");
+			salaireTF.setText("");
 		}catch (MyExceptions e){
 			firstNameTF.setStyle("-fx-text-box-border: red;"); 
 		}
@@ -109,10 +109,11 @@ public class MainViewController {
 		try{
 			sal = Integer.parseInt(salaire);
 		}catch(NumberFormatException e){
-			msg+="-salaire ne doit contenir que des chiffres! \n";
+			if(!salaire.equals(""))
+			msg+="- salaire ne doit contenir que des chiffres! \n";
 		}
 		if(sal < 0){
-			msg += "-salaire ne peut pas etre negatif";
+			msg += "- salaire ne peut pas etre negatif!";
 		}
 
 		if(msg.equals("")){
@@ -120,6 +121,7 @@ public class MainViewController {
 			try{
 			provider.addEmployer(emp);
 			e.add(emp);
+			
 			
 			}catch(Exception e){
 				

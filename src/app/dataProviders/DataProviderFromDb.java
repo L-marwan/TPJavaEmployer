@@ -1,6 +1,7 @@
 package app.dataProviders;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +12,15 @@ import app.db.DBConnection;
 import app.model.Employer;
 import app.util.IdGenerator;
 
+
+/*
+ * provides and interface for the view to pull and persist data from the database
+ */
 public class DataProviderFromDb implements DataProviderInterface{
 
+	/**
+	 * returns a list of all the emloyees in the database
+	 */
 	@Override
 	public ArrayList<Employer> getEmployers() throws Exception{
 		
@@ -52,6 +60,10 @@ public class DataProviderFromDb implements DataProviderInterface{
 		
 		return result;
 	}
+	
+	/**
+	 * finds an employe based on thier name
+	 */
 	
 	@Override
 	public Employer getEmployerByNames(String nom, String prenom)throws Exception {
@@ -93,6 +105,9 @@ public class DataProviderFromDb implements DataProviderInterface{
 		return result;
 	}
 
+	/**
+	 * insert a given employee in the database
+	 */
 	@Override
 	public void addEmployer(Employer emp) throws Exception {
 		Connection dbConn = null;
@@ -113,7 +128,7 @@ public class DataProviderFromDb implements DataProviderInterface{
 			preparedStatement.setInt(5, emp.getSalaire());
 			
 			preparedStatement.executeUpdate();
-			System.out.println("order item added!!");
+			System.out.println("employe added!!");//for debuggin
 			
 			
 		} catch (SQLException sqle){
@@ -133,13 +148,10 @@ public class DataProviderFromDb implements DataProviderInterface{
 	
 	
 	
-	//helper method 
+	//helper method to print the SQL errors in a clear way
 	public static void printSQLException(SQLException ex) {
-
 	    for (Throwable e : ex) {
 	        if (e instanceof SQLException) {
-
-
 	                e.printStackTrace(System.err);
 	                System.err.println("SQLState: " +
 	                    ((SQLException)e).getSQLState());
@@ -154,8 +166,7 @@ public class DataProviderFromDb implements DataProviderInterface{
 	                    System.out.println("Cause: " + t);
 	                    t = t.getCause();
 	                }
-	            }
-	     
+	            }	     
 	    }
 	}
 	

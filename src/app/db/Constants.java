@@ -3,6 +3,9 @@ package app.db;
 
 
 
+/*
+ *  dtabase constants
+ */
 
 public class Constants {
 
