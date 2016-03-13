@@ -31,6 +31,13 @@ public class Employer extends Personne{
 		mSalaire = salaire;
 	}
 	
+	public Employer(String nom, String prenom,String post, int salaire){
+		super(nom,prenom);
+		mPost    = post;
+		mSalaire = salaire;
+	}
+	
+	
 	public Employer(String nom, String prenom, LocalDate date,int salaire){
 		super(nom,prenom, date);
 		mSalaire = salaire;

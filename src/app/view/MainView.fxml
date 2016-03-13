@@ -44,16 +44,16 @@
                         <Label text="Nom:" />
                         <Label text="Prenom:" GridPane.rowIndex="1" />
                         <Label text="Post:" GridPane.rowIndex="2" />
-                        <TextField fx:id="firstNameLabel" GridPane.columnIndex="1" />
-                        <TextField fx:id="lastNameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="posteLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="firstNameTF" GridPane.columnIndex="1" />
+                        <TextField fx:id="lastNameTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="posteTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Salaire:" GridPane.rowIndex="3" />
-                        <TextField fx:id="salaireLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="salaireTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <ButtonBar layoutX="202.0" layoutY="236.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="Ajouter" />
+                      <Button mnemonicParsing="false" onAction="#handleAdd" text="Ajouter" />
                     </buttons>
                   </ButtonBar>
                </children>

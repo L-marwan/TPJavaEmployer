@@ -34,11 +34,16 @@ public class Main extends Application {
 	private BorderPane rootLayout;
 	
 	
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("TP Java");
+
 		
 		initRootLayout();
 		showMainView();
@@ -53,6 +58,7 @@ public class Main extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
+ 
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -69,6 +75,10 @@ public class Main extends Application {
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
+            
+            // Give the controller access to the main app.
+            MainViewController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

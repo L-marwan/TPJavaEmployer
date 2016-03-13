@@ -40,4 +40,10 @@ public class DummyDataProvider implements DataProviderInterface {
 		return null;
 	}
 
+	@Override
+	public void addEmployer(Employer emp) throws Exception {
+		employers.add(emp);
+		
+	}
+
 }
