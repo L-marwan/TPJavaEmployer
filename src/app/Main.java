@@ -78,6 +78,7 @@ public class Main extends Application {
 	/*------- Main method uses launch to launch the first stage of the app -------*/
 	public static void main(String[] args) {
 		System.out.println("hello");
+		//start app
 
 		launch(args);
 	}
